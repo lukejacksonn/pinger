@@ -11,14 +11,14 @@ document.body.innerHTML = `
   <ul id="pings"></ul>
 `;
 
-glu("ping google.com")(ping => {
+glu('ping google.com', ([ping]) => {
   const time = ping.match(/time=(\d+)/) || [];
   if (time[1]) {
     pings.push(time[1]);
-    $("#ping").innerText = time[1];
-    $("#pings").innerHTML = pings
+    $('#ping').innerText = time[1];
+    $('#pings').innerHTML = pings
       .slice(-10)
       .map(x => `<li style="height:${x}px"></li>`)
-      .join("");
+      .join('');
   }
 });
